@@ -587,4 +587,127 @@ DAY-3
 				MobaXterm for windows
 				Putty
 			Terminal 
+				
+				
+
+#######
+DAY-3
+#######			
 		
+		Local Git Repo.
+		
+			git init
+			git add
+			git commit 
+			
+		
+		
+		GIT BASH & GIT GUI 
+		
+		
+		git init -- used to initialize a local git repo.
+						--> .git folder ==> 
+						--> Created a default branch (master/main)
+		
+		Local Machine :
+		
+		Working dir.		---->			staging Area			----> 		Local Repo
+		
+		
+		
+		Tracking :::
+			Who ? when ? What ?
+			
+		git config user.name , user.email 
+		
+			Local 
+			global 
+			
+		git config --global user.name "Loksai"
+		git config --global user.email "xyz@az.com"
+		
+		Local Config :
+		git config user.email "xyz@az.com"
+		
+		DEV Team: 
+		
+		
+		Project_ID 
+		CR_No
+		
+		service id
+		
+		d1,d2,d3,d4,d5
+		
+		repo --> 
+		
+		git add .
+		git add f1.txt 
+		git add *.txt 
+		
+		
+		echo "hello"
+		
+		log 
+		
+		git status  (vs) git log 
+		
+		
+		touch 
+		
+		echo "adfa" >> f1.txt 
+		
+		vi f1.txt 
+		
+		esc :wq	enter	===> save and exit from file
+		rsc :q! enter	===> exit without save 
+		
+		
+		Project_Folder :::
+			index.jsp 
+			properties 
+			readme.md 
+		
+		git ignore.
+		
+		
+		Java_web_app_project
+			git init 
+			
+			vi .gitignore
+			
+			git add .
+			
+			git commit -m "initial commit"
+			
+			
+			signin.class
+			signin.java
+			index.jsp 
+			signup.java 		---> sql 
+			db_credential
+			secret 
+			
+			.gitignore
+				db_credential
+				secret
+				signin.class
+				
+			git add .
+			
+			commited  ( local machine) 						>>> 				remote repo 
+			
+			
+	git diff ::::
+	
+			git diff 
+			git diff <commit_id> <commit_id1>
+			
+			git rm --cached <f1.txt>	==> Just remove from staging area, but will be thr in working dir
+			git rm -f <f1.txt>			==> Just remove from staging area & from working dir
+			
+NEXT ::
+	GIT :
+		reset 
+		revert
+		branch...
