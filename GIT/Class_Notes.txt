@@ -711,3 +711,210 @@ NEXT ::
 		reset 
 		revert
 		branch...
+		
+
+  502  mkdir Mar13-Project
+  503  cd Mar13-Project/
+  504  pwd
+  505  clear
+  506  mkdir samplerepo1
+  507  cd samplerepo1/
+  508  pwd
+  509  git --version
+  510  clear
+  511  git --version
+  512  ls
+  513  echo "rec1" >> file1.txt
+  514  echo "Hello Team"
+  515  ls
+  516  cat file1.txt
+  517  echo "Hello Team" >> file1.txt
+  518  cat file1.txt
+  519  clear
+  520  ls
+  521  ls -a
+  522  git init
+  523  ls -a
+  524  cd .git
+  525  ls
+  526  cd ..
+  527  ls
+  528  clear
+  529  git status
+  530  git add file1.txt
+  531  git status
+  532  git commit -m "First Commit"
+  533  git log
+  534  git status
+  535  touch file2.txt
+  536  ls
+  537  echo "rec1" >> file2.txt
+  538  ls
+  539  cat file2.txt
+  540  git status
+  541  git add file2.txt
+  542  git status
+  543  git commit -m "second commit"
+  544  git log
+  545  git config user.email "xyz@az.com"
+  546  echo "rec2" >> file3.txt
+  547  git add
+  548  git add file3.txt
+  549  git commit -m "third commit"
+  550  git log
+  551  ls
+  552  ls -a
+  553  git log
+  554  cd ..
+  555  mkdir samplerepo2
+  556  cd samplerepo2/
+  557  git init
+  558  git status
+  559  ls
+  560  echo "rec1" >> f1.txt
+  561  git status
+  562  git add f1.txt
+  563  git statsu
+  564  git status
+  565  git commit -m "CM1"
+  566  git status
+  567  git log
+  568  ls
+  569  clear
+  570  ls
+  571  echo "rec1" >> f2.txt
+  572  echo "rec1" >> f3.txt
+  573  echo "rec1" >> f4.txt
+  574  git status
+  575  git add .
+  576  git status
+  577  git commit -m "CM2"
+  578  git log
+  579  clear
+  580  echo "rec1" >> s1.txt
+  581  echo "rec1" >> j1.java
+  582  echo "rec1" >> j2.java
+  583  echo "rec1" >> readme.md
+  584  ls
+  585  git status
+  586  git add *.java
+  587  git status
+  588  git commit -m "CM3"
+  589  echo "Hello"
+  590  echo "Hello" >> s1.txt
+  591  cat s1.txt
+  592  clear
+  593  echo "Hello" >> s1.txt
+  594  cat s1.txt
+  595  echo "Hello" >> s1.txt
+  596  cat s1.txt
+  597  echo "Hello" > s1.txt
+  598  cat s1.txt
+  599  git status
+  600  git add .
+  601  git log
+  602  git commit -m "CM4"
+  603  git log
+  604  clear
+  605  git log
+  606  echo "adfasdf" >> q1.txt
+  607  cat q1.txt
+  608  clear
+  609  git log
+  610  git log --oneline
+  611  git log -2
+  612  git log -2 --oneline
+  613  git log --stat
+  614  git log --stat -2
+  615  git status
+  616  git add .
+  617  git commit -m "CM5"
+  618  git log
+  619  git log --oneline
+  620  git show 63e1fa1
+  621  echo "aadsfadf" >> s1.txt
+  622  git add .
+  623  git commit -m "CM6"
+  624  git log --oneline
+  625  git show 139c893
+  626  git show 63e1fa1
+  627  vi s1.txt
+  628  git add .
+  629  git commit -m "CM7"
+  630  git log --oneline
+  631  git show 85aaef8
+  632  clear
+  633  ls
+  634  vi f1.txt
+  635  cat f1.txt
+  636  vi f1.txt
+  637  ls f1.txt
+  638  cat f1.txt
+  639  clear
+  640  clear
+  641  ls
+  642  cd ..
+  643  mkdir samplerepo3
+  644  cd samplerepo3
+  645  git status
+  646  git init
+  647  git status
+  648  clear
+  649  ls -a
+  650  vi .gitignore
+  651  git status
+  652  git add .
+  653  git commit -m "Initial commit for git ignore"
+  654  git status
+  655  ls -a
+  656  cat .gitignore
+  657  echo "rec1" >> s1.java
+  658  echo "rec1" >> q1.doc
+  659  ls
+  660  git status
+  661  ehco "afasd" >> sample.txt
+  662  echo "afasd" >> sample.txt
+  663  git status
+  664  git add .
+  665  git commit -m "CM1"
+  666  git log
+  667  clear
+  668  ls
+  669  git status
+  670  cat s1.java
+  671  echo "adfasd" >> s1.java
+  672  git diff
+  673  git add .
+  674  git diff
+  675  git diff --cached
+  676  git diff --cached --name-only
+  677  git commit -m "changed s1"
+  678  git diff --cached --name-only
+  679  git diff HEAD
+  680  clear
+  681  git log --oneline
+  682  git diff 735cf3f 36f9836
+  683  git diff 36f9836 735cf3f
+  684  clear
+  685  git status
+  686  ls
+  687  echo "rec" >> s2.java
+  688  ls
+  689  git add .
+  690  git status
+  691  ls
+  692  git rm --cached s2.java
+  693  git status
+  694  git add s2.java
+  695  git status
+  696  ls
+  697  git rm -f s2.java
+  698  git status
+  699  ls
+  700  echo "rec1" >> s3.java
+  701  git add .
+  702  git status
+  703  git rm --cached s3.java
+  704  git status
+  705  git commit -m "adfas"
+  706  history
