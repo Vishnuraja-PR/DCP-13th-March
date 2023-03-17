@@ -663,7 +663,7 @@ DAY-4
 		rsc :q! enter	===> exit without save 
 		
 		
-		Project_Folder :::
+		Java_web_app_project			-- repo. 
 			index.jsp 
 			properties 
 			readme.md 
@@ -678,7 +678,10 @@ DAY-4
 			
 			git add .
 			
-			git commit -m "initial commit"
+			git commit -m "initial commit"	
+				
+				mkdir dir 
+				files 
 			
 			
 			signin.class
@@ -712,209 +715,268 @@ NEXT ::
 		revert
 		branch...
 		
+#######
+DAY-5
+#######
 
-  502  mkdir Mar13-Project
-  503  cd Mar13-Project/
-  504  pwd
-  505  clear
-  506  mkdir samplerepo1
-  507  cd samplerepo1/
-  508  pwd
-  509  git --version
-  510  clear
-  511  git --version
-  512  ls
-  513  echo "rec1" >> file1.txt
-  514  echo "Hello Team"
-  515  ls
-  516  cat file1.txt
-  517  echo "Hello Team" >> file1.txt
-  518  cat file1.txt
-  519  clear
-  520  ls
-  521  ls -a
-  522  git init
-  523  ls -a
-  524  cd .git
-  525  ls
-  526  cd ..
-  527  ls
-  528  clear
-  529  git status
-  530  git add file1.txt
-  531  git status
-  532  git commit -m "First Commit"
-  533  git log
-  534  git status
-  535  touch file2.txt
-  536  ls
-  537  echo "rec1" >> file2.txt
-  538  ls
-  539  cat file2.txt
-  540  git status
-  541  git add file2.txt
-  542  git status
-  543  git commit -m "second commit"
-  544  git log
-  545  git config user.email "xyz@az.com"
-  546  echo "rec2" >> file3.txt
-  547  git add
-  548  git add file3.txt
-  549  git commit -m "third commit"
-  550  git log
-  551  ls
-  552  ls -a
-  553  git log
-  554  cd ..
-  555  mkdir samplerepo2
-  556  cd samplerepo2/
-  557  git init
-  558  git status
-  559  ls
-  560  echo "rec1" >> f1.txt
-  561  git status
-  562  git add f1.txt
-  563  git statsu
-  564  git status
-  565  git commit -m "CM1"
-  566  git status
-  567  git log
-  568  ls
-  569  clear
-  570  ls
-  571  echo "rec1" >> f2.txt
-  572  echo "rec1" >> f3.txt
-  573  echo "rec1" >> f4.txt
-  574  git status
-  575  git add .
-  576  git status
-  577  git commit -m "CM2"
-  578  git log
-  579  clear
-  580  echo "rec1" >> s1.txt
-  581  echo "rec1" >> j1.java
-  582  echo "rec1" >> j2.java
-  583  echo "rec1" >> readme.md
-  584  ls
-  585  git status
-  586  git add *.java
-  587  git status
-  588  git commit -m "CM3"
-  589  echo "Hello"
-  590  echo "Hello" >> s1.txt
-  591  cat s1.txt
-  592  clear
-  593  echo "Hello" >> s1.txt
-  594  cat s1.txt
-  595  echo "Hello" >> s1.txt
-  596  cat s1.txt
-  597  echo "Hello" > s1.txt
-  598  cat s1.txt
-  599  git status
-  600  git add .
-  601  git log
-  602  git commit -m "CM4"
-  603  git log
-  604  clear
-  605  git log
-  606  echo "adfasdf" >> q1.txt
-  607  cat q1.txt
-  608  clear
-  609  git log
-  610  git log --oneline
-  611  git log -2
-  612  git log -2 --oneline
-  613  git log --stat
-  614  git log --stat -2
-  615  git status
-  616  git add .
-  617  git commit -m "CM5"
-  618  git log
-  619  git log --oneline
-  620  git show 63e1fa1
-  621  echo "aadsfadf" >> s1.txt
-  622  git add .
-  623  git commit -m "CM6"
-  624  git log --oneline
-  625  git show 139c893
-  626  git show 63e1fa1
-  627  vi s1.txt
-  628  git add .
-  629  git commit -m "CM7"
-  630  git log --oneline
-  631  git show 85aaef8
-  632  clear
-  633  ls
-  634  vi f1.txt
-  635  cat f1.txt
-  636  vi f1.txt
-  637  ls f1.txt
-  638  cat f1.txt
-  639  clear
-  640  clear
-  641  ls
-  642  cd ..
-  643  mkdir samplerepo3
-  644  cd samplerepo3
-  645  git status
-  646  git init
-  647  git status
-  648  clear
-  649  ls -a
-  650  vi .gitignore
-  651  git status
-  652  git add .
-  653  git commit -m "Initial commit for git ignore"
-  654  git status
-  655  ls -a
-  656  cat .gitignore
-  657  echo "rec1" >> s1.java
-  658  echo "rec1" >> q1.doc
-  659  ls
-  660  git status
-  661  ehco "afasd" >> sample.txt
-  662  echo "afasd" >> sample.txt
-  663  git status
-  664  git add .
-  665  git commit -m "CM1"
-  666  git log
-  667  clear
-  668  ls
-  669  git status
-  670  cat s1.java
-  671  echo "adfasd" >> s1.java
-  672  git diff
-  673  git add .
-  674  git diff
-  675  git diff --cached
-  676  git diff --cached --name-only
-  677  git commit -m "changed s1"
-  678  git diff --cached --name-only
-  679  git diff HEAD
-  680  clear
-  681  git log --oneline
-  682  git diff 735cf3f 36f9836
-  683  git diff 36f9836 735cf3f
-  684  clear
-  685  git status
-  686  ls
-  687  echo "rec" >> s2.java
-  688  ls
-  689  git add .
-  690  git status
-  691  ls
-  692  git rm --cached s2.java
-  693  git status
-  694  git add s2.java
-  695  git status
-  696  ls
-  697  git rm -f s2.java
-  698  git status
-  699  ls
-  700  echo "rec1" >> s3.java
-  701  git add .
-  702  git status
-  703  git rm --cached s3.java
-  704  git status
-  705  git commit -m "adfas"
-  706  history
+		GIT Reset ==> is used to reset the committed changes.
+
+		git rm ===> is used to unstage the changes .
+		
+
+	git reset vs revert 
+	
+	d1,d2....
+	
+	
+	during deployment ::
+	
+		releases
+			ver1.9 -> prod 	
+				ver1.8
+			bug 
+		
+			-> first try to fix 4hr -6hrs 
+			--> revert the changes 
+			
+		reset ::: 
+		
+		reset ===> will remove the commits from the history 
+		revert ==> will not remove the commit from the history, but it will create a new commit point'
+		
+		
+		remote ::::
+		
+			jobs --> run the monitoring tools --> infra --> memory, user access, ==> data-file  .
+			
+			store in the repo1. (temp) reset hard 
+			
+			data-file -- 
+			has to be processed 
+			can be stored in repo2 -- permanent repo
+			==> will be shared with the business users/Dashboard 
+			
+			
+			artifacts -- 
+			
+			
+		reset 
+		revert 
+		
+		branches!!!
+		
+		GIT Branching!
+		
+		commit .
+		
+		git commit -m "cm1"
+		
+		file1.java ==> 10 func. 
+		
+		git add . == > adding the new changes 
+		
+		github ==> dev1(owner) 1 ===> forked(dev1) sync. 1
+		+100
+		
+			
+		
+	Git Branching ::: ==> is used to enable parallel development 
+	
+	Proj_Repo1: (master)
+		index.jsp (f1,2,3,4)
+	create new branch --> feature1.
+	
+	
+	Proj_Repo1:(master)
+		rel1:
+		rel2:
+	
+	
+	GIT Branching Strategies :::
+	
+		master : 
+			feature1	
+			feature2
+			feature3
+			
+		
+	Local Repo.															Remote_Repo 		==> Build & Deployment 
+		master :						====> 								master: (RELEASE_Version)
+
+			hot-fix/adhoc branch:
+		
+			Release_Branch:
+				Integration_Branch:	(App_Team1)				
+					Developer1  tag1
+						feature1 tag1	
+						feature2
+						feature3
+					Developer2
+						feature1	
+						feature2
+						feature3
+
+				Integration_Branch:	(App_Team2)				
+					Developer1  f1,
+						feature1  unit_testing 	
+						feature2
+						feature3
+					Developer2
+						feature1	
+						feature2
+						feature3
+							
+		
+		Producion issues 
+	
+	
+				release ID / Tags :::				
+				
+					jdk1.7
+					
+					jdk1.8
+					
+					jdk1.9 
+					jdk1.9.1
+					jdk1.9.2
+					jdk1.9.3
+					
+			src_code_tag/version		build --> *.war_v1.0 ==> Build-versioning
+			
+			DevOps Engg. === role ??? 
+			create some scripts. 
+			
+			DevOps_Admin Repo.
+		
+					jenkins
+					kubernetes
+					
+					
+			git branch workflow 
+			
+			git workflow
+			github workflow
+			az_repo workflow 
+
+  709  mkdir samplerepo4
+  710  cd samplerepo4
+  711  clear
+  712  git status
+  713  git init
+  714  echo "rec1" >> f1.txt
+  715  git add .
+  716  git commit -m "CM1"
+  717  echo "rec1" >> f2.txt
+  718  git add .
+  719  git commit -m "CM2"
+  720  echo "rec1" >> f3.txt
+  721  git add .
+  722  git commit -m "CM3"
+  723  echo "rec1" >> f4.txt
+  724  git add .
+  725  git commit -m "CM4"
+  726  echo "rec1" >> f5.txt
+  727  git add .
+  728  git commit -m "CM5"
+  729  clear
+  730  git log --oneline
+  731  git status
+  732  ls
+  733  git ls-files
+  734  git reset --soft 62b36b9
+  735  git status
+  736  git ls-files
+  737  ls
+  738  git log --oneline
+  739  git commit -m "CM5.1"
+  740  git log --oneline
+  741  git reset --soft 17d3ce1
+  742  git log --oneline
+  743  git status
+  744  git commit -m "CM3.1"
+  745  git status
+  746  git log --oneline
+  747  git show d21b7f2
+  748  echo "rec1" >> f6.txt
+  749  git add .
+  750  git commit -m "CM4"
+  751  echo "rec1" >> f7.txt
+  752  git add .
+  753  git commit -m "CM5"
+  754  git log --oneline
+  755  ls
+  756  git ls-files
+  757  git reset --mixed 4d79c31
+  758  git status
+  759  git ls-files
+  760  ls
+  761  git add .
+  762  git commit -m "CM5.1"
+  763  git log --oneline
+  764  git ls-files
+  765  git log --oneline
+  766  ls
+  767  git ls-files
+  768  git status
+  769  git reset --hard 4d79c31
+  770  git log --oneline
+  771  git status
+  772  git ls-files
+  773  ls
+  774  git reset --hard f63e3ba
+  775  ls
+  776  git log --oneline
+  777  git reset --hard f63e3ba
+  778  ls
+  779  clear
+  780  git log --oneline
+  781  ls
+  782  echo "rec1" >> f2.txt
+  783  git add .
+  784  git commit -m "CM2"
+  785  echo "rec1" >> f3.txt
+  786  git add .
+  787  git log --oneline
+  788  git commit -m "CM3"
+  789  echo "rec1" >> f4.txt
+  790  git add .
+  791  git commit -m "CM4"
+  792  clera
+  793  clear
+  794  git log --oneline
+  795  git revert 3c68121
+  796  git log --oneline
+  797  ls
+  798  git show 70527f9
+  799  git show f189ae9
+  800  git show 3c68121
+  801  ls
+  802  git revert f189ae9
+  803  ls
+  804  cd d:
+  805  cd Mar13-Project/
+  806  pwd
+  807  mkdir samplerepo5
+  808  cd samplerepo5
+  809  clear
+  810  git init
+  811  echo "rec1" >> f1.txt
+  812  git add .
+  813  git commit -m "asdfadfasdf"
+  814  git log --oneline
+  815  git commit --ament -m "New Msg1"
+  816  git commit --amend -m "New Msg1"
+  817  git log --oneline
+  818  clear
+  819  git log --oneline
+  820  clear
+  821  ls
+  822  git status
+  823  git log --oneline
+  824  clear
+  825  git log --oneline
+  826  history
+
+NEXT :			
+			Working Create Branches ::::
+			
