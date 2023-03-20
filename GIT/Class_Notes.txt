@@ -799,25 +799,32 @@ DAY-5
 			feature2
 			feature3
 			
+		master : 
+			Dev_Branch
+				feature1	
+				feature2
+				feature3
 		
 	Local Repo.															Remote_Repo 		==> Build & Deployment 
 		master :						====> 								master: (RELEASE_Version)
-
+						 	(mastercopy1)
 			hot-fix/adhoc branch:
 		
-			Release_Branch:
-				Integration_Branch:	(App_Team1)				
-					Developer1  tag1
-						feature1 tag1	
-						feature2
-						feature3
+			Release_Branch: 	 	---> (CPAT1),(CPAT2) --> (mastercopy1)
+			
+				Integration_Branch:	(App_Team1)	 	---> (NCP1),(NCP2),(NCP3) --> (CPAT1)
+					merge developer1				
+					Developer1 	---> c1,2,3,4,5,6,7,8,9,....,n,(NCP1)	---> c1,2,3,4,5,6,7,8,9,....,n(NCP2)	---> c1,2,3,4,5,6,7,8,9,....,n(NCP3)
+						feature1	---> c1,2,3,4,5,6,7,8,9,....,n
+						feature2	---> c1,2,3,4,5,6,7,8,9,....,n
+						feature3	---> c1,2,3,4,5,6,7,8,9,....,n
 					Developer2
 						feature1	
 						feature2
 						feature3
 
-				Integration_Branch:	(App_Team2)				
-					Developer1  f1,
+				Integration_Branch:	(App_Team2)	  	---> (NCP11),(NCPt2),(NCPt3) --> (CPAT2)			
+					Developer1  f1,  ---> c1,2,3,4,5,6,7,8,9,....,n,(NCPt1)	---> c1,2,3,4,5,6,7,8,9,....,n(NCPt2)	---> c1,2,3,4,5,6,7,8,9,....,n(NCPt3)
 						feature1  unit_testing 	
 						feature2
 						feature3
@@ -980,3 +987,283 @@ DAY-5
 NEXT :			
 			Working Create Branches ::::
 			
+#######
+DAY-6
+#######
+		Working with Git Branches :::
+		
+		Working on Remote Repositores :::
+		
+		Default Branch name : (master/main)
+		
+		git switch
+		git checkout
+		git branch 
+		
+		master branch :
+		
+		using master as base : we can create a new branch 
+		
+		Developer ::: 
+		 master :::
+			git switch -c feature1 
+			git switch -c feature2
+			git switch -c feature3
+			
+		git merge :
+		Always merge command shd be executed from the target branch
+		
+			(source)feature1 ==> (target)master
+			
+		Scenario ::
+		
+			When more than one user try to update a same file/rec ?
+			
+		feature2 & 3 
+		
+		Merge Conflict!
+		
+		When Merge Conflict Occurs?
+			When more than one user try to update a same file/rec.
+			
+		How to fix Merge Conflict ?
+			- First identify the files that is causing Merge Conflict.
+			- Review the Changes
+			- Decide which record shd be retained 
+			- update the file 
+			- add and commit the new changes in target branch 
+			
+	
+	f1.txt ===> master
+		r1
+		r2
+		r3
+	
+	feature1 					
+		f1.txt
+			r1
+			record2_from_feature1_Branch
+			r3 
+
+	feature2 
+		f1.txt
+			r1
+			record2_from_feature2_Branch
+			r3 			
+	
+	git merge feature1
+	
+		master		
+		f1.txt
+			r1
+			record2_from_feature1_Branch
+			r3
+			
+	git merge feature2
+	
+	Create Merge conflict on f1.txt
+	
+	DevOps ==> Always we shd prevent Merge Conflict.
+	
+
+	How to prevent merge conflict ???
+	
+		Do a proper review of the changes before merge.
+		Should always keep your current branch in sync with target branch and then do merge.
+		
+	git rebase! 
+	
+	master :
+				c1,c2,c3
+				
+				merge feature1
+				c1,c2,c3,f1c1,f1c2,f1c3
+								
+				c1,c2,c3,f1c1,f1c2,f1c3,f2c1,f2c2,f2c3			=== VALID Working Tree
+				
+	feature1 :
+				c1,c2,c3,f1c1,f1c2,f1c3
+				
+
+	feature2 :
+				c1,c2,c3,f2c1,f2c2,f2c3
+				git rebase :
+				
+				c1,c2,c3,f1c1,f1c2,f1c3,f2c1,f2c2,f2c3
+				
+	rebase :	local repo. m,f1,f2.....
+	
+	pull: 		remote repo.
+	
+	
+
+	git squash ::::	=== > Is used to combine more than once commit points into one.
+	
+	
+	master ::: --> 	cm1,2,3,newcommitpointf1, func1cp,func2cp
+		
+		feature1 :::
+					cm1,2,3,f1c1,f1c2,f1c3,..................f1200 - newcommitpoint
+					
+		feature2 :::
+					cm1,2,3,f2c1,c2,c3,c4-func1cp,f2c1,c2,c3,c4-func2cp
+					
+					
+	SQUASH --> can be done at two levels:	
+	
+		--> Before Merge(while working on current branch) 
+		
+		--> While Merge.
+
+  506  mkdir samplerepo6
+  507  cd samplerepo6
+  508  clear
+  509  git init
+  510  echo "rec1" >> f1.txt
+  511  git add .
+  512  git commit -m "CM1 from master"
+  513  echo "rec1" >> f2.txt
+  514  git add .
+  515  git commit -m "CM2 from master"
+  516  clear
+  517  git log --oneline
+  518  git branch
+  519  git switch -c feature1
+  520  git switch master
+  521  git branch
+  522  git switch feature1
+  523  git branch
+  524  clear
+  525  git branch master
+  526  git switch master
+  527  git branch feature2
+  528  git branch
+  529  git switch feature2
+  530  git switch master
+  531  clear
+  532  git checkout -b feature3
+  533  clear
+  534  git switch master
+  535  git log --oneline
+  536  ls
+  537  git switch feature1
+  538  git log --oneline
+  539  ls
+  540  clear
+  541  git branch
+  542  ls
+  543  echo "rec1" >> f3.txt
+  544  git add .
+  545  git commit -m "CM1 from feature1"
+  546  git log --oneline
+  547  git switch master
+  548  git log --oneline
+  549  git merge feature1
+  550  git log --oneline
+  551  ls
+  552  git switch feature2
+  553  git log --oneline
+  554  ls
+  555  git switch feature3
+  556  ls
+  557  git switch master
+  558  ls
+  559  git switch feature2
+  560  ls
+  561  echo "rec2 from feature2" >> f1.txt
+  562  git add .
+  563  git commit -m "CM1 from feature2"
+  564  git log --oneline
+  565  git switch master
+  566  git log --oneline
+  567  ls
+  568  cat f1.txt
+  569  git switch feature3
+  570  ls
+  571  cat f1.txt
+  572  echo "rec1 from feature3" >> f1.txt
+  573  git add .
+  574  git commit -m "CM1 from feature3"
+  575  git log --oneline
+  576  git switch master
+  577  git log --oneline
+  578  cat f1.txt
+  579  git merge feature2
+  580  git log -oneline
+  581  git log --oneline
+  582  clear
+  583  ls
+  584  cat f1.txt
+  585  git merge feature3
+  586  ls
+  587  cat f1.txt
+  588  vi f1.txt
+  589  git status
+  590  git add .
+  591  git commit -m "Fixed Merge Conflict"
+  592  git statsu
+  593  git status
+  594  ls
+  595  cat f1.txt
+  596  clear
+  597  cd ..
+  598  mkdir samplerepo7
+  599  cd samplerepo7
+  600  git init
+  601  clear
+  602  echo "rec1" > s1.txt
+  603  git add .
+  604  git commit -m "CM1 from master"
+  605  echo "rec1" >> s2.txt
+  606  git add .
+  607  git commit -m "CM2 from master"
+  608  echo "rec1" >> s3.txt
+  609  git add .
+  610  git commit -m "CM3 from master"
+  611  clear
+  612  git log --oneline
+  613  git switch -c feature1
+  614  git log --oneline
+  615  echo "rec1" >> f1s1.txt
+  616  git add .
+  617  git commit -m "CM1 from feature1"
+  618  echo "rec1" >> f1s2.txt
+  619  git add .
+  620  git commit -m "CM2 from feature1"
+  621  git log --oneline
+  622  git switch master
+  623  git log --oneline
+  624  git branch
+  625  git switch -c feature2
+  626  git log --oneline
+  627  git switch master
+  628  clear
+  629  git log --oneline
+  630  git merge feature1
+  631  git log --oneline
+  632  git switch feature2
+  633  git log --oneline
+  634  echo "rec1" >> f2s1.txt
+  635  git add .
+  636  git commit -m "CM1 from feature2"
+  637  echo "rec1" >> f2s2.txt
+  638  git add .
+  639  git commit -m "CM2 from feature2"
+  640  clear
+  641  git log --oneline
+  642  git rebase master
+  643  git log --oneline
+  644  git switch master
+  645  git merge feature2
+  646  git log --oneline
+  647  git switch feature1
+  648  git log --oneline
+  649  history
+	
+	
+
+	
+	
+	
+	
+
