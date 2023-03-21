@@ -810,8 +810,7 @@ DAY-5
 						 	(mastercopy1)
 			hot-fix/adhoc branch:
 		
-			Release_Branch: 	 	---> (CPAT1),(CPAT2) --> (mastercopy1)
-			
+			Release_Branch: 	 	---> (CPAT1),(CPAT2) 
 				Integration_Branch:	(App_Team1)	 	---> (NCP1),(NCP2),(NCP3) --> (CPAT1)
 					merge developer1				
 					Developer1 	---> c1,2,3,4,5,6,7,8,9,....,n,(NCP1)	---> c1,2,3,4,5,6,7,8,9,....,n(NCP2)	---> c1,2,3,4,5,6,7,8,9,....,n(NCP3)
@@ -1261,9 +1260,289 @@ DAY-6
   649  history
 	
 	
+Summary: 
+	
+	Merge 
+	
+	
+#######
+DAY-7
+#######
 
-	
-	
-	
-	
+		GIT SQUASH :
+		GIT STASH :
+		GIT REMOTE REPOSITORY :
+		
+		JENKINS - CICD :
+		
+		git squash ::::	=== > Is used to combine more than once commit points into one.		
+		
+		master ::: --> 	cm1,2,3,newcommitpointf1, func1cp,func2cp
+			
+			feature1 :::
+						cm1,2,3,f1c1,f1c2,f1c3,..................f1200 - newcommitpoint
+						
+			feature2 :::
+						cm1,2,3,f2c1,c2,c3,c4-func1cp,f2c1,c2,c3,c4-func2cp						
+						
+		SQUASH --> can be done at two levels:	
+		
+			--> Before Merge(while working on current branch) 
+			
+					git rebase -i HEAD~3
+						#Update the commit msg in the interactive screen and save the file.
+			
+			--> While Merge.
+					
+					git switch master # Target branch
+					git merge --squash feature1
+					git commit -m "Changes from feature1"
 
+	git Cherrypick : 
+					git switch master # Target branch
+					git cherry-pick <commit_id>
+
+	Git Stash :::
+	
+			Developer1 :::		>
+			
+				master  :
+					feature1 ---> making code changes - 1,2,3,4,5,6/just indexing the changes ==> stash the uncommited changes.
+					adhoc 	 ---> making code changes - 1,2,3,4,5,6/just indexing the changes
+					
+					
+			stash apply (vs) pop
+			
+				apply -  will just re-apply the changes to the branch. It will never delete that entry from stash list.
+				pop   -  will just re-apply the changes to the branch. But It will delete that entry from stash list.
+				
+			
+			git stash
+			git stash save "adsfas"
+			git stash apply
+			git stash drop
+			git stash pop
+			git stash clear
+			git stash show 
+			git stash branch <new-branch-name>
+			
+		
+	Git Remote Repository :::
+
+			DevOps ::
+				dev - team 		-- Cicd pipelines 
+				deveops team 	-- creating some scripts. 
+				
+	
+		github --> 
+		gitlab
+		bitbucket
+		az-repo 
+		
+	Developers can work ::
+	
+		New_project 
+			Creating the proj in local machine ==> pushed to remote repo.
+			
+		Enhancements (or) bug_fixing
+			Clone the remote repo to his local machine --> Make some changes --> test the local changes ==> push to remote repo.
+			
+			
+			
+		git clone <url>
+			authentication.
+				github userId
+				github access_token
+				
+		git clone
+		push
+		fetch
+		pull 
+		remote add 
+		git remote add origin https://github.com/LoksaiETA/mar13-testrepo1.git		
+		git push origin main
+		remote -v 
+		remote remove 
+		git remote remove origin https://github.com/LoksaiETA/mar13-testrepo1.git
+
+  655  mkdir samplerepo8
+  656  cd samplerepo8/
+  657  clear
+  658  git init
+  659  echo "rec1" >> README.MD
+  660  git add .
+  661  git commit -m "Initial commit"
+  662  git switch -c feature1
+  663  echo "rec1" >> f1.txt
+  664  git add .
+  665  git commit -m " CM1 from feature1"
+  666  echo "rec1" >> f1.txt
+  667  git add .
+  668  git commit -m " CM2 from feature1"
+  669  echo "rec1" >> f1.txt
+  670  git add .
+  671  git commit -m " CM3 from feature1"
+  672  echo "rec1" >> f1.txt
+  673  git add .
+  674  git commit -m " CM4 from feature1"
+  675  git add .
+  676  git status
+  677  git log --oneline
+  678  ls
+  679  git log --oneline
+  680  cat f1.txt
+  681  git rebase -i HEAD~4
+  682  git log --oneline
+  683  ls
+  684  cat f1.txt
+  685  echo "rec1" >> f2.txt
+  686  git add .
+  687  git commit -m "CM1 from feature1"
+  688  echo "rec1" >> f2.txt
+  689  git add .
+  690  git commit -m "CM2 from feature1"
+  691  echo "rec1" >> f2.txt
+  692  git add .
+  693  git commit -m "CM3 from feature1"
+  694  echo "rec1" >> f2.txt
+  695  git add .
+  696  git commit -m "CM4 from feature1"
+  697  echo "rec1" >> f2.txt
+  698  git add .
+  699  git commit -m "CM5 from feature1"
+  700  git log --oneline
+  701  git switch master
+  702  git merge --squash feature1
+  703  git status
+  704  git commit -m "Changes from feature1"
+  705  git status
+  706  git log --oneline
+  707  ls
+  708  cat f1.txt
+  709  cat f2.txt
+  710  git log --oneline
+  711  git switch feature1
+  712  git status
+  713  git log -oneline
+  714  git log --oneline
+  715  echo "rec1" >> f3.txt
+  716  git add .
+  717  git commit -m "CM for f3.txt"
+  718  echo "rec1" >> f4.txt
+  719  git add .
+  720  git commit -m "CM for f4.txt"
+  721  git log --oneline
+  722  git switch master
+  723  git log --oneline
+  724  ls
+  725  git cherry-pick c36afa0
+  726  git status
+  727  git log --oneline
+  728  ls
+  729  clear
+  730  git log --oneline
+  731  git switch -c feature2
+  732  git status
+  733  echo "rec1" >> file1.txt
+  734  git add .
+  735  clear
+  736  git status
+  737  git switch -c adhoc-branch
+  738  git status
+  739  ls
+  740  git switch feature2
+  741  git status
+  742  git stash
+  743  git status
+  744  git stash list
+  745  git stash show stash@{0}
+  746  echo "rec1" >> file2.txt
+  747  git add .
+  748  git stash
+  749  git stash list
+  750  git stash show stash@{0}
+  751  git stash show stash@{1}
+  752  git status
+  753  echo "rec1" >> file3.txt
+  754  git add .
+  755  git stash save "temp. stashed file3 changes"
+  756  git stash list
+  757  git status
+  758  git stash list
+  759  git stash apply
+  760  git status
+  761  git commit -m "CM1 for File3"
+  762  git stash list
+  763  git stash drop
+  764  git stash list
+  765  git stash pop
+  766  git stash list
+  767  git stash show stash@{0}
+  768  git stash branch temp-feature1-b
+  769  git status
+  770  git add .
+  771  git commit -m "temp changes from feature2"
+  772  git branch
+  773  git log --oneline
+  774  clear
+  775  cd ..
+  776  ls
+  777  mkdir samplerepo9
+  778  cd samplerepo9/
+  779  ls
+  780  clear
+  781  git clone https://github.com/LoksaiETA/mar13-repo1.git
+  782  ls
+  783  cd mar13-repo1/
+  784  ls
+  785  clear
+  786  ls
+  787  cat file1.txt
+  788  echo "rec1 from local" >> file2.txt
+  789  git add .
+  790  git commit -m "CM1 from Local Repo"
+  791  ls
+  792  git staus
+  793  git staus
+  794  git status
+  795  git remote -v
+  796  git push -u origin main
+  797  git status
+  798  git fetch origin
+  799  ls
+  800  cat file1.txt
+  801  git pull origin
+  802  ls
+  803  cat file1.txt
+  804  git pull origin
+  805  ls
+  806  cat file1.txt
+  807  ls
+  808  git switch -c feature1.1
+  809  ls
+  810  echo "rec1" >> s1.txt
+  811  git add .
+  812  git commit -m "CM1 from local feature1.1"
+  813  git push -u origin feature1.1
+  814  cd ..
+  815  cd ..
+  816  mkdir samplerepo11
+  817  cd samplerepo11/
+  818  git init
+  819  echo "adfasdf" >> file1.txt
+  820  git add .
+  821  git commit -m "CM1 from local"
+  822  git branch -M main
+  823  git remote -v
+  824  git remote add origin https://github.com/LoksaiETA/mar13-testrepo1.git
+  825  git remote -v
+  826  git push -u origin main
+  827  cd ..
+  828  mkdir samplerepo12
+  829  cd samplerepo12
+  830  git clone https://github.com/LoksaiETA/mar13-demo123.git
+  831  ls
+  832  cd mar13-demo123/
+  833  ls
+  834  ls -a
+  835  history
