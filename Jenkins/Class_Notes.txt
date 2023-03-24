@@ -1648,3 +1648,56 @@ Summary :::
 			Explore Jenkins Dashboard
 			Manage Jenkins 
 				Plugin Manager
+				
+				
+		
+#######
+DAY-9
+#######		
+		
+		Jenkins Jobs/Projects 
+		
+			Free-style Project				---> 	Manual Configuration.
+			
+			Pipeline Project				---> 	Automated.
+				- Scripted Pipeline
+				- Declarative Pipeline 
+
+
+		Jenkins_Server/Master												Jenkins_Server/Master 
+		
+		Non-Prod Environment 												PROD Environment
+		
+		Build 																Prod Jobs.
+		Deploy to Test Environment
+			QA
+			UAT
+			Pre-Prod 
+		
+		Jenkins Server: (Master)   --> Create Jobs & Schedule.		
+			Slave1 		: 	Java_Projects - build & Create Artifacts 
+			Slave1.1 	: 	Java_Projects - build & Create Artifacts
+			Slave2 		:	.Net
+			Slave3 		:	Python 		
+		
+		
+		Variables :::	
+		
+			Environment Variables
+			User-defined Variables 
+		
+		
+		Pipeline Project				---> 	Automated.
+			- Scripted Pipeline
+			- Declarative Pipeline 		
+
+
+	Jenkins - Master & Slave!
+	
+		Slave1 --> Build Java Application & create Artifacts. 
+					GIT,JDK,Maven,
+					
+	Password based authentication
+	ssh-key based authentication
+		pivate key & public key
+	
