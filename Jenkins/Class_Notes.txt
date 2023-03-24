@@ -185,6 +185,157 @@ Banking!!!!
 Online - E-Commerce  / Facebook 
 
 
+	
+	
+#######
+DAY-10
+#######	
+
+		Source Repository :
+			
+			Java Maven - Web Appln.
+			
+			Maven 
+				--> pom.xml -- is used to define all the dependencies and plugins required to build the appln.
+				--> goals 	-- clean test package
+				
+
+pipeline {
+    agent {
+        label 'javaslave1'
+    }
+
+    tools 
+    {
+        maven 'Maven-3.9.1'
+    }
+
+    stages {
+        stage('SCM-Checkout') {
+            steps {
+                git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Build Maven Web App.'
+				sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('Deploy to QA Server') {
+            steps {
+                // Run Maven on a Unix agent.
+				script {
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'QA-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+            }
+		}
+
+    }
+}	
+		
+		
+	Workflow ::
+		commit src in github repo. --> jenkins pipeline triggered to perform build n deployment
+			Build Triggers ...
+		
+	Slave1 -- Build-Server 
+	QA -- Target/Hosted server / Test server
+	
+	Deployment ::: *.war
+	
+		VM - Hosted Server (H/W)
+			Install a Application Server (Tomcat(8080)/Nginx) (S/W)
+			
+	Jenkins_Master 
+		Slave1
+	QA-Server 
+	
+	
+	Deployment ::: 
+	
+		Source path 							
+		/home/devopsadmin/workspace/sample-pipeline-proj1/target/mvn-hello-world.war
+		
+		Target Path 
+		/opt/tomcat/webapps
+		
+		
+	Access any external server thru Jenkins we use :
+	
+		Publish-Over-SSH Plugin
+		
+		
+	Automate Jenkins Build trigger!
+	
+		Build Periodic
+		
+		Poll SCM
+			4hours --> Test Cycle runs for every 3 hrs.
+		
+		GITHUB Webhook
+			for every commit in SCM repo. build will trigger.
+			
+				Config github webhook.
+	
+
+#Github webhook to automatically trigger build pipeline!
+
+#Goto Github Repository setting, 
+Select webhook, 
+
+Click Add Webhook
+
+Enter Jenkins Master URL. eg.:
+http://<public-IP>:8080/github-webhook/
+
+http://35.154.44.76:8080/github-webhook/
+
+Choose the push event and save the webhook configuration
+
+**********************************************************************************
+
+Build Periodic:
+want to trigger a build for every one hour only
+
+
+Intall GIT on your Jenkins Master!
+
+	Poll SCM:
+	want to trigger a build for every one hour only if there is any commit happened in the src repo 
+
+	Github Webhook!!
+	want to trigger a build for every commit happened in the src repo 
+	
+Email Notification!
+
+Email Notification Plugins :::
+
+SMTP Server :
+smtp.gmail.com
+
+SMTP Authentication
+
+SMTP Port :: 465
+
+Login to Gmail :::
+
+Click Account Settings
+
+Security 
+
+	Create Application Token for your Email Account 
+	
+	This token acts as a password.
+	
+		- 	Login to ur GMail Account
+		-	Go to Manage Account
+		- 	Security Tab 
+			Config 
+				MFA 
+				Add Appln. Token
+				16 bytes token 
+
 	Monolith Application Architecture ::
 		Modules/Task/Iteration
 	
