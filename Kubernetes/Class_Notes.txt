@@ -2288,3 +2288,194 @@ DAY-16
 			
 				K-Master 
 				K-WN1,2,3,4,5,6,....,n
+
+
+
+			
+********
+DAY-17
+********
+	
+		Docker Images/Containers
+			
+		Pods == 
+		
+		Create Manifest file ==> *.yaml
+		
+		1. Create a pod
+			run the Container 
+		2. kubectl exec -it 
+		3. Services 
+			- ClusterIP
+			- Nodeport Service 
+			- Load Balancer 
+		
+		
+		Core Concepts :
+			
+			Controller Objects:
+			
+				-	Replicasets
+				-	Replication Controller 
+				-	Deployments
+				- 	Daemonset
+				
+			- 	Services 
+			-	Volumes 
+			
+		
+		Replicasets  (vs) Replication Controller
+
+			replicatset uses set based operator 
+			RC -- uses Equality based operator
+
+
+	192.168.105.134:80
+	
+	192.168.105.130:80
+		
+		]
+		
+		docker_image_mvn_app:v1.0		==> deployed to QA Envi. using kubernetes
+		docker_image_mvn_app:v1.1		==> deployed to QA Envi. using kubernetes
+		docker_image_mvn_app:v1.2		==> deployed to QA Envi. using kubernetes		
+		
+		docker_image_mvn_app:PROD1.0	==> deployed to PROD Envi. using kubernetes		
+		docker_image_mvn_app:PROD1.1	==> deployed to PROD Envi. using kubernetes			
+		docker_image_mvn_app:PROD1.2	==> deployed to PROD Envi. using kubernetes	
+
+
+	Deployment :::
+	
+	1
+	2
+	3
+		
+		wn1 - 
+		wn2 - 
+		
+		
+	Pod ==> c1	Active --> logs/reports				====> application 
+			c2 	Passive/sidecar - logs/reports		====> Monitoring tool/agent
+	
+	Deployment Controller:	
+		Pod ==> c1	Active --> logs/reports
+		Pod ==> c1	Active --> logs/reports			
+		
+	Daamonset == pod Monitoring tool/agent 
+		
+		
+********
+DAY-18
+********		
+		
+			Kubernetes :
+			
+			- 	Services 
+			-	Volumes		
+			- 	helm - package manager for kubernetes.
+			
+		Pod --> 
+		
+			Service :
+			
+				ClusterIP
+				Nodeport
+				LoadBalancer 
+				
+			Volumes :
+			
+				emptyDir == Default Volume 
+				hostpath ==> 
+				External Volumes :
+					Config_Map
+					Secret
+					Persistant Volumes
+					Persistant Volume Claim
+				
+		
+		
+		Config Map 
+						Deploy a web_app : (img)
+						
+						QA 
+						
+						UAT 
+						
+						PROD 
+		
+		Secret :::
+		
+			Used to map the sensitive data.
+			
+			
+				Persistant Volumes
+				Persistant Volume Claim
+		
+		
+			Namespace : --> Logical partitioning.
+			
+			Non-Prod (DEV,QA,UAT)
+			
+		Master:
+			Cluster 	
+				WN1
+				WN2
+				WN3
+				WN4
+	
+		Namespace : DEV - apppod1
+		Namespace : QA 	- apppod1
+		Namespace : UAT - apppod1
+		
+		PROD Deployment ::::
+		
+			Master:
+				Cluster 	
+					WN1
+					WN2
+					WN3
+					WN4		
+			
+		Huge Migration :::
+		
+			web-Appln.REL_v1.0
+
+			web-Appln.REL_v2.0
+			
+		Blue-Green Deployment ::
+		
+		Server1	(active)						Server2 
+		web-Appln.REL_v1.0						web-Appln.REL_v2.0
+		
+		
+		Namespace_PROD_REL1 : web-Appln.REL_v1.0			- Active 50 relicas  drop this ns 
+		
+		Namespace_PROD_REL2 : web-Appln.REL_v2.0			- Testing 
+		
+		
+		NON-
+		
+		Master:
+			Cluster 				
+				WN1
+				WN2
+				WN3
+				WN4
+	
+		Namespace : DEV - web-Appln.REL_v2.0		-- nginx1
+		
+		Namespace : QA 	- web-Appln.REL_v2.0		-- nginx1
+		
+		Namespace : UAT - 							-- nginx1
+		
+Summary :
+
+NEXT 	:		
+		
+		HELM chart.
+		
+		Terraform & Monitoring Tools 
+		
+		cicd pipeline ---> 
+		
